@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(1, 143, 143);
+}
+
+.slider__wrapper {
+    margin: 100px auto 0;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 600px;
+    background-color: rgb(0, 163, 163);
+    border-radius: 7px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+
+}
+
+.slider {
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    margin: 0 auto 100px;
+}
+
+.slider img {
+    height: 90%;
+    border-radius: 0.4375rem;
+}
+
+.slides {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.description {
+    height: 1.125rem;
+    font-size: 1rem;
+    overflow: hidden;
+    margin-left: 3.125rem;
+    margin-top: -3.125rem;
+}
+
+.description p {
+    line-height: 1.125rem;
+}
+
+.slider__wrapper>input {
+    display: none;
+}
+
+
+
+.controls {
+    display: flex;
+    justify-content: flex-end;
+    align-content: start;
+    margin-right: 3.125rem;
+    margin-top: -3.125rem;
+    order: 1;
+}
+
+.controls label:after {
+    border: 1px solid rgb(0, 68, 68);
+    content: "";
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    left: -2px;
+    top: -2px;
+    border-radius: 50%;
+}
+
+.controls label {
+    cursor: pointer;
+    width: 8px;
+    height: 8px;
+    margin: 0 5px 0 5px;
+    position: relative;
+    border-radius: 50%;
+    transition: background ease-in-out .5s;
+}
+
+.controls :hover,
+#slide1:checked~.controls label:nth-of-type(1),
+#slide2:checked~.controls label:nth-of-type(2),
+#slide3:checked~.controls label:nth-of-type(3),
+#slide4:checked~.controls label:nth-of-type(4) {
+    background: rgb(242, 245, 245);
+}
+
+.controls :active,
+#slide1:checked~.controls label:nth-of-type(1),
+#slide2:checked~.controls label:nth-of-type(2),
+#slide3:checked~.controls label:nth-of-type(3),
+#slide4:checked~.controls label:nth-of-type(4) {
+    background: rgb(1, 75, 75);
+}
+
+.slides {
+    height: inherit;
+    opacity: 0;
+    position: absolute;
+    width: inherit;
+    z-index: 0;
+    transform: scale(1.2);
+    transition: transform ease-in-out 1s, opacity ease-in-out .5s;
+}
+
+#slide1:checked~.slider>.slide1,
+#slide2:checked~.slider>.slide2,
+#slide3:checked~.slider>.slide3,
+#slide4:checked~.slider>.slide4 {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#slide1:checked~.description>.describe:nth-child(1) {
+    opacity: 1;
+    transition: ease-in .7s;
+    transform: translateY(0px);
+}
+
+#slide2:checked~.description>.describe:nth-child(1) {
+    opacity: 1;
+    transition: ease-in .7s;
+    transform: translateY(-1.125rem);
+}
+
+#slide2:checked~.description>.describe:nth-child(2) {
+    opacity: 1;
+    transition: ease-in .7s;
+    transform: translateY(-1.125rem);
+}
+
+#slide3:checked~.description>.describe:nth-child(1) {
+    opacity: 1;
+    transition: ease-in .7s;
+    transform: translateY(-2.25rem);
+}
+
+#slide3:checked~.description>.describe:nth-child(2) {
+    opacity: 1;
+    transition: ease-in .7s;
+    transform: translateY(-2.25rem);
+}
+
+#slide3:checked~.description>.describe:nth-child(3) {
+    opacity: 1;
+    transition: ease-in .7s;
+    transform: translateY(-2.25rem);
+}
+
+#slide4:checked~.description>.describe:nth-child(1) {
+    opacity: 1;
+    transition: ease-in .7s;
+    transform: translateY(-3.375rem);
+}
+
+#slide4:checked~.description>.describe:nth-child(2) {
+    opacity: 1;
+    transition: ease-in .7s;
+    transform: translateY(-3.375rem);
+}
+
+#slide4:checked~.description>.describe:nth-child(3) {
+    opacity: 1;
+    transition: ease-in .7s;
+    transform: translateY(-3.375rem);
+}
+
+#slide4:checked~.description>.describe:nth-child(4) {
+    opacity: 1;
+    transition: ease-in .7s;
+    transform: translateY(-3.375rem);
+}
+
+@media (max-width: 767px) {
+    html {
+        font-size: 15px;
+    }
+
+    .slider__wrapper {
+        flex-direction: column;
+        width: 90%;
+        flex-wrap: nowrap;
+    }
+
+    .controls {
+        margin: 0;
+        justify-content: center;
+        order: 1;
+        margin-top: -60px;
+        margin-bottom: 30px;
+    }
+
+    .description {
+        margin: 0;
+        gap: 1rem;
+        order: 2;
+        margin: 0 0 3.125rem 3.125rem;
+    }
+
+}
